@@ -1,12 +1,30 @@
-import React from 'react'
+import React, { Component } from 'react'
+import { Slider, ListItem, RaisedButton } from 'material-ui';
 
-const SliderItem = ({text, max, id, handleSliderChange, handleSliderDestroy}) => (
-  <li>
-    {text}
-    <input type="range" min="1" max={max} step="1" data-id={id} onChange={handleSliderChange} />
-    <output id={id} ></output>
-    <button data-id={id} onClick={handleSliderDestroy} >Destroy</button>
-  </li>
-)
+class SliderItem extends Component {
+  state = {
+    slider: 0,
+  }
+
+  handleSlider = (event, value) => {
+    this.setState({slider: value})
+  }
+
+  render() {
+    return (
+    <ListItem>
+      {this.props.text}
+      <Slider
+        max={this.props.max}
+        step={1}
+        data-id={this.props.id}
+        value={this.state.slider}
+        onChange={this.props.handleSlider} />
+      <span>{this.state.slider}</span>
+      <RaisedButton onClick={() => this.props.handleSliderDestroy(this.props.id)} label='Destroy' />
+    </ListItem>
+    )
+  }
+}
 
 export default SliderItem
