@@ -7,6 +7,7 @@ import Dialog, {
   DialogTitle,
 } from 'material-ui/Dialog'
 import Button from 'material-ui/Button'
+import Grid from 'material-ui/Grid'
 
 class InputArea extends Component {
   state = {
@@ -38,19 +39,33 @@ class InputArea extends Component {
     this.setState({ open: false })
   }
 
+  componentDidMount = () => {
+    document.getElementById('input').focus()
+  }
+
   render() {
     return (
-      <div>
-        <TextField
-          label="Thing We Value"
-          onChange={this.handleChange}
-          value={this.state.text} />
-        <Button
-          raised
-          color='primary'
-          onClick={this.handleSubmit}>
-          Add
-        </Button>
+      <Grid style={{margin: '8px'}}
+            container
+            direction={'row'}
+            alignItems={'flex-end'}
+            justify={'center'}>
+        <Grid item sm={6} xs={6}>
+          <TextField
+            id={'input'}
+            label="Thing We Value"
+            style={{width: '100%'}}
+            onChange={this.handleChange}
+            value={this.state.text} />
+        </Grid>
+        <Grid item sm={3} xs={6}>
+          <Button
+            raised
+            color='primary'
+            onClick={this.handleSubmit}>
+            Add
+          </Button>
+        </Grid>
         <Dialog
           open={this.state.open}
           onRequestClose={this.handleClose} >
@@ -68,7 +83,7 @@ class InputArea extends Component {
             </Button>
           </DialogActions>
         </Dialog>
-      </div>
+      </Grid>
     )
   }
 }

@@ -5,6 +5,8 @@ import AppBar from 'material-ui/AppBar'
 import Toolbar from 'material-ui/Toolbar'
 import Typography from 'material-ui/Typography'
 import Grid from 'material-ui/Grid'
+import IconButton from 'material-ui/IconButton';
+import CompareArrowsIcon from 'material-ui-icons/CompareArrows';
 
 
 class App extends Component {
@@ -28,14 +30,17 @@ class App extends Component {
       <div>
         <AppBar position="static" color="primary">
           <Toolbar>
+            <IconButton color="contrast">
+              <CompareArrowsIcon />
+            </IconButton>
             <Typography type="title" color="inherit">
-              Trade Off Slider
+              Trade-off Slider
             </Typography>
           </Toolbar>
         </AppBar>
-        <Grid container>
-          <Grid item sm={2}></Grid>
-          <Grid item sm={8}>
+        <Grid container style={{padding: '16px', margin: '0px'}}>
+          <Grid item sm={2} xs={false}></Grid>
+          <Grid item sm={8} xs={12}>
             <SliderList
               items={this.state.items}
               handleSliderDestroy={this.handleSliderDestroy} />
