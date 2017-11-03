@@ -34,7 +34,7 @@ class App extends Component {
               <CompareArrowsIcon />
             </IconButton>
             <Typography type="title" color="inherit">
-              Trade-off Slider
+              Trade-off Sliders
             </Typography>
           </Toolbar>
         </AppBar>

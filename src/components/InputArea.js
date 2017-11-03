@@ -40,7 +40,7 @@ class InputArea extends Component {
   }
 
   componentDidMount = () => {
-    document.getElementById('input').focus()
+    document.getElementById('metrics').focus()
   }
 
   render() {
@@ -52,8 +52,8 @@ class InputArea extends Component {
             justify={'center'}>
         <Grid item sm={6} xs={6}>
           <TextField
-            id={'input'}
-            label="Thing We Value"
+            id={'metrics'}
+            label="What metrics do you add?"
             style={{width: '100%'}}
             onChange={this.handleChange}
             value={this.state.text} />
