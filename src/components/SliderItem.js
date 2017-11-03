@@ -1,26 +1,35 @@
+import 'rc-slider/assets/index.css';
+import 'rc-tooltip/assets/bootstrap.css';
 import React, { Component } from 'react'
-import { Slider, ListItem, RaisedButton } from 'material-ui';
+import { ListItem, RaisedButton } from 'material-ui';
+import Slider, { createSliderWithTooltip } from 'rc-slider';
+
+const SliderWithTooltip = createSliderWithTooltip(Slider);
 
 class SliderItem extends Component {
   state = {
-    slider: 0,
+    value: this.props.max,
   }
 
-  handleSlider = (event, value) => {
-    this.setState({slider: value})
+  handleSlider = (value) => {
+    this.setState({
+      value,
+    })
   }
 
   render() {
     return (
     <ListItem>
       {this.props.text}
-      <Slider
-        max={this.props.max}
+      <SliderWithTooltip
+        dots
+        value={this.state.value}
+        min={1}
         step={1}
-        data-id={this.props.id}
-        value={this.state.slider}
-        onChange={this.props.handleSlider} />
-      <span>{this.state.slider}</span>
+        max={this.props.max}
+        onChange={this.handleSlider}
+      />
+      <span>{this.state.value}</span>
       <RaisedButton onClick={() => this.props.handleSliderDestroy(this.props.id)} label='Destroy' />
     </ListItem>
     )
