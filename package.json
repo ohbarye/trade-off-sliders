@@ -1,5 +1,5 @@
 {
-  "name": "trade-off-slider",
+  "name": "trade-off-sliders",
   "version": "0.1.0",
   "private": true,
   "devDependencies": {},
@@ -96,5 +96,5 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "homepage": "https://ohbarye.github.io/trade-off-slider"
+  "homepage": "https://ohbarye.github.io/trade-off-sliders"
 }
