@@ -1,7 +1,11 @@
 import React, { Component } from 'react'
 import SliderList from './components/SliderList'
 import InputArea from './components/InputArea'
-import { AppBar, Paper } from 'material-ui';
+import AppBar from 'material-ui/AppBar'
+import Toolbar from 'material-ui/Toolbar'
+import Typography from 'material-ui/Typography'
+import Grid from 'material-ui/Grid'
+
 
 class App extends Component {
   state = {
@@ -21,15 +25,26 @@ class App extends Component {
 
   render() {
     return (
-      <Paper>
-        <AppBar title="Trade Off Slider" />
-        <SliderList
-          items={this.state.items}
-          handleSliderDestroy={this.handleSliderDestroy} />
-        <InputArea
-          text={this.state.text}
-          handleSubmit={this.handleSubmit} />
-      </Paper>
+      <div>
+        <AppBar position="static" color="primary">
+          <Toolbar>
+            <Typography type="title" color="inherit">
+              Trade Off Slider
+            </Typography>
+          </Toolbar>
+        </AppBar>
+        <Grid container>
+          <Grid item sm={2}></Grid>
+          <Grid item sm={8}>
+            <SliderList
+              items={this.state.items}
+              handleSliderDestroy={this.handleSliderDestroy} />
+            <InputArea
+              text={this.state.text}
+              handleSubmit={this.handleSubmit} />
+          </Grid>
+        </Grid>
+      </div>
     )
   }
 }

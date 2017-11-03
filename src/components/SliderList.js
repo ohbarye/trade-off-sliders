@@ -1,6 +1,6 @@
 import React from 'react'
 import SliderItem from './SliderItem'
-import { List } from 'material-ui';
+import List from 'material-ui/List'
 
 const SliderList = ({items, handleSliderChange, handleSliderDestroy}) => (
   <List>

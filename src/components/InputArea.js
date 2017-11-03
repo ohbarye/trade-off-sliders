@@ -1,5 +1,12 @@
 import React, { Component } from 'react'
-import { RaisedButton, TextField, Paper, FlatButton, Dialog } from 'material-ui';
+import TextField from 'material-ui/TextField'
+import Dialog, {
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+} from 'material-ui/Dialog'
+import Button from 'material-ui/Button'
 
 class InputArea extends Component {
   state = {
@@ -33,30 +40,35 @@ class InputArea extends Component {
 
   render() {
     return (
-      <Paper>
+      <div>
         <TextField
-          floatingLabelText="Thing We Value"
+          label="Thing We Value"
           onChange={this.handleChange}
           value={this.state.text} />
-        <RaisedButton
-          primary={true}
-          label='Add'
-          onClick={this.handleSubmit} />
+        <Button
+          raised
+          color='primary'
+          onClick={this.handleSubmit}>
+          Add
+        </Button>
         <Dialog
-          title="Form is invalid"
-          actions={
-            <FlatButton
-              label="Cancel"
-              primary={true}
-              onClick={this.handleClose}
-            />
-          }
-          modal={false}
           open={this.state.open}
           onRequestClose={this.handleClose} >
-          Please enter some texts!
+          <DialogTitle>Form is invalid</DialogTitle>
+          <DialogContent>
+            <DialogContentText>
+              Please enter some texts!
+            </DialogContentText>
+          </DialogContent>
+          <DialogActions>
+            <Button
+              color='primary'
+              onClick={this.handleClose} >
+              Cancel
+            </Button>
+          </DialogActions>
         </Dialog>
-      </Paper>
+      </div>
     )
   }
 }
