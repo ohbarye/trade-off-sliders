@@ -6,7 +6,7 @@ import {
   Grid,
   IconButton,
 } from 'material-ui'
-import CompareArrowsIcon from 'material-ui-icons/CompareArrows';
+import CompareArrowsIcon from 'material-ui-icons/CompareArrows'
 import SliderList from './SliderList'
 import InputArea from './InputArea'
 

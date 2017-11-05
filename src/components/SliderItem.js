@@ -1,8 +1,8 @@
 import 'rc-slider/assets/index.css'
 import React from 'react'
 import { ListItem } from 'material-ui/List'
-import IconButton from 'material-ui/IconButton';
-import DeleteIcon from 'material-ui-icons/Delete';
+import IconButton from 'material-ui/IconButton'
+import DeleteIcon from 'material-ui-icons/Delete'
 import Grid from 'material-ui/Grid'
 import Typography from 'material-ui/Typography'
 import Paper from 'material-ui/Paper'
