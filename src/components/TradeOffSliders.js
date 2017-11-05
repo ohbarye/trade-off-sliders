@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import SliderList from './components/SliderList'
-import InputArea from './components/InputArea'
+import SliderList from './SliderList'
+import InputArea from './InputArea'
 import AppBar from 'material-ui/AppBar'
 import Toolbar from 'material-ui/Toolbar'
 import Typography from 'material-ui/Typography'
@@ -9,7 +9,7 @@ import IconButton from 'material-ui/IconButton';
 import CompareArrowsIcon from 'material-ui-icons/CompareArrows';
 
 
-class App extends Component {
+class TradeOffSliders extends Component {
   state = {
     items: []
   }
@@ -54,4 +54,4 @@ class App extends Component {
   }
 }
 
-export default App
+export default TradeOffSliders

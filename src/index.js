@@ -1,16 +1,22 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { render } from 'react-dom'
+import { Provider } from 'react-redux'
+import { createStore } from 'redux'
 import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles'
-import App from './App'
+import App from './components/App'
+import tradeOffSlidersApp from './reducers'
 import registerServiceWorker from './worker/registerServiceWorker'
 
 const theme = createMuiTheme()
+let store = createStore(tradeOffSlidersApp)
 
-ReactDOM.render(
-  (
-    <MuiThemeProvider theme={theme}>
-      <App />
-    </MuiThemeProvider>
-    ), document.getElementById('root')
+render(
+    <Provider store={store}>
+      <MuiThemeProvider theme={theme}>
+        <App />
+      </MuiThemeProvider>
+    </Provider>
+  , document.getElementById('root')
 )
+
 registerServiceWorker()
