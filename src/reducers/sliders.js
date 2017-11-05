@@ -6,13 +6,19 @@ const sliders = (state = [], action) => {
         {
           id: action.id,
           text: action.text,
-          value: action.value,
+          value: state.length + 1,
         }
       ]
+    case 'EDIT_SLIDER':
+      return state.map(slider => {
+        if (slider.id === action.id) {
+          return Object.assign({}, slider, action.params)
+        } else {
+          return slider
+        }
+      })
     case 'REMOVE_SLIDER':
-      return [
-        ...state.filter(slider => slider.id !== action.id),
-      ]
+      return state.filter(slider => slider.id !== action.id)
     default:
       return state
   }

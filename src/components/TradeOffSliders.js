@@ -10,7 +10,7 @@ import CompareArrowsIcon from 'material-ui-icons/CompareArrows';
 import SliderList from './SliderList'
 import InputArea from './InputArea'
 
-const TradeOffSliders = ({sliders, addSlider, removeSlider}) => (
+const TradeOffSliders = ({sliders, addSlider, editSlider, removeSlider}) => (
   <div>
     <AppBar position="static" color="primary">
       <Toolbar>
@@ -25,7 +25,7 @@ const TradeOffSliders = ({sliders, addSlider, removeSlider}) => (
     <Grid container style={{padding: '16px', margin: '0px'}}>
       <Grid item sm={2} xs={false} />
       <Grid item sm={8} xs={12}>
-        <SliderList sliders={sliders} removeSlider={removeSlider} />
+        <SliderList sliders={sliders} editSlider={editSlider} removeSlider={removeSlider} />
         <InputArea addSlider={addSlider} />
       </Grid>
     </Grid>
