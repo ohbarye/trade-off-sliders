@@ -23,11 +23,7 @@ class InputArea extends Component {
       this.handleOpen()
       return
     }
-    const newItem = {
-      text: this.state.text,
-      id: Date.now(),
-    }
-    this.props.handleSubmit(newItem)
+    this.props.addSlider(this.state.text)
     this.setState(prevState => ({ text: ''}))
   }
 

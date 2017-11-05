@@ -50,7 +50,7 @@ class SliderItem extends Component {
             </Typography>
           </Grid>
           <Grid item sm={1} xs={1}>
-            <IconButton onClick={() => this.props.handleSliderDestroy(this.props.id)} >
+            <IconButton onClick={this.props.removeSlider} >
               <DeleteIcon />
             </IconButton>
           </Grid>

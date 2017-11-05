@@ -2,10 +2,13 @@ import React from 'react'
 import SliderItem from './SliderItem'
 import List from 'material-ui/List'
 
-const SliderList = ({items, handleSliderChange, handleSliderDestroy}) => (
+const SliderList = ({sliders, handleSliderChange, removeSlider}) => (
   <List>
-    {items.map(item => (
-      <SliderItem {...item} max={items.length} key={item.id} handleSliderDestroy={handleSliderDestroy} />
+    {sliders.map(slider => (
+      <SliderItem key={slider.id}
+                  max={sliders.length}
+                  removeSlider={() => removeSlider(slider.id)}
+                  {...slider} />
     ))}
   </List>
 )

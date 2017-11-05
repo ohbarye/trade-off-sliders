@@ -1,57 +1,35 @@
-import React, { Component } from 'react'
+import React from 'react'
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  Grid,
+  IconButton,
+} from 'material-ui'
+import CompareArrowsIcon from 'material-ui-icons/CompareArrows';
 import SliderList from './SliderList'
 import InputArea from './InputArea'
-import AppBar from 'material-ui/AppBar'
-import Toolbar from 'material-ui/Toolbar'
-import Typography from 'material-ui/Typography'
-import Grid from 'material-ui/Grid'
-import IconButton from 'material-ui/IconButton';
-import CompareArrowsIcon from 'material-ui-icons/CompareArrows';
 
-
-class TradeOffSliders extends Component {
-  state = {
-    items: []
-  }
-
-  handleSubmit = (newItem) => {
-    this.setState(prevState => ({
-      items: prevState.items.concat(newItem),
-    }))
-  }
-
-  handleSliderDestroy = (id) => {
-    const newItems = this.state.items.filter(item => item.id !== id)
-    this.setState(prevState => ({ items: newItems }))
-  }
-
-  render() {
-    return (
-      <div>
-        <AppBar position="static" color="primary">
-          <Toolbar>
-            <IconButton color="contrast">
-              <CompareArrowsIcon />
-            </IconButton>
-            <Typography type="title" color="inherit">
-              Trade-off Sliders
-            </Typography>
-          </Toolbar>
-        </AppBar>
-        <Grid container style={{padding: '16px', margin: '0px'}}>
-          <Grid item sm={2} xs={false}></Grid>
-          <Grid item sm={8} xs={12}>
-            <SliderList
-              items={this.state.items}
-              handleSliderDestroy={this.handleSliderDestroy} />
-            <InputArea
-              text={this.state.text}
-              handleSubmit={this.handleSubmit} />
-          </Grid>
-        </Grid>
-      </div>
-    )
-  }
-}
+const TradeOffSliders = ({sliders, addSlider, removeSlider}) => (
+  <div>
+    <AppBar position="static" color="primary">
+      <Toolbar>
+        <IconButton color="contrast">
+          <CompareArrowsIcon />
+        </IconButton>
+        <Typography type="title" color="inherit">
+          Trade-off Sliders
+        </Typography>
+      </Toolbar>
+    </AppBar>
+    <Grid container style={{padding: '16px', margin: '0px'}}>
+      <Grid item sm={2} xs={false} />
+      <Grid item sm={8} xs={12}>
+        <SliderList sliders={sliders} removeSlider={removeSlider} />
+        <InputArea addSlider={addSlider} />
+      </Grid>
+    </Grid>
+  </div>
+)
 
 export default TradeOffSliders
